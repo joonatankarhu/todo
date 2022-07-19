@@ -5,7 +5,7 @@ import Home from './View/Home';
 
 function App() {
   return (
-    <div className='flex flex-col p-5'>
+    <div className='flex flex-col bg-black/90 h-screen'>
       <Home />
     </div>
   )
