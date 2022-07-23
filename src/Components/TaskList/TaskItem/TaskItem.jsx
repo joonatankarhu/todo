@@ -1,11 +1,17 @@
 import React from 'react';
-import { FaCheckSquare, FaEdit, FaTrash } from "react-icons/fa";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
-const TaskItem = ({ title, date, status }) => {
+const TaskItem = ({ title, date, status, task, taskList, setTaskList, setShowModule }) => {
+
+  // Delete Task handler
+  const deleteHandler = () => {
+    setTaskList(taskList.filter((el) => el.id !== task.id));
+  };
+
   return (
-    <div className='flex justify-end gap-3 border-[1px] border-white/50 rounded py-3 mb-5'>
-      <li className='mr-auto'>
-        <div className='flex gap-1 text-lg font-bold'>
+    <div className='flex justify-end gap-3 border-[1px] rounded p-5 mb-5 text-white bg-blue-600 shadow'>
+      <div className='mr-auto'>
+        <div className='flex gap-1 text-xl font-bold'>
           <h6>Task:</h6>
           {title}
         </div>
@@ -13,20 +19,17 @@ const TaskItem = ({ title, date, status }) => {
           <h6>Deadline:</h6>
           {date}
         </div>
-        <div className='text-base'>
+        <div className='flex gap-1 text-base'>
+          <h6>Status: </h6>
           {status}
         </div>
-      </li>
+      </div>
       <div className='flex flex-col gap-2 text-base'>
-        <button className='flex items-center gap-1 text-green-700 hover:text-green-500'>
-          <FaCheckSquare/>
-          <p>Check</p>
-        </button>
-        <button className='flex items-center gap-1 text-yellow-700 hover:text-yellow-500'>
+        <button onClick={() => setShowModule(true)} className='flex items-center gap-1 text-white hover:bg-white hover:text-blue-600 px-3 py-1 rounded-xl'>
           <FaEdit/>
           Edit
         </button>
-        <button className='flex items-center gap-1 text-red-700 hover:text-red-500'>
+        <button onClick={deleteHandler} className='flex items-center gap-1 text-white hover:bg-white hover:text-blue-600 px-3 py-1 rounded-xl'>
           <FaTrash/>
           Delete
         </button>

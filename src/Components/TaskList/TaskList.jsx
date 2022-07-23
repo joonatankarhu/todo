@@ -1,18 +1,23 @@
 import React from 'react';
 import TaskItem from './TaskItem/TaskItem';
 
-const TaskList = ({ todos }) => {
+const TaskList = ({ taskList, editTitle, setTaskList, setShowModule }) => {
   return (
-    <div className='mt-10 border-[1px] border-black rounded-xl p-10 shadow-2xl border-[2px] font-medium'>
-      <h3 className='text-2xl mb-10'>Task List</h3>
+    <div className='mt-10 rounded-xl p-10 shadow-xl border-[1px] border-gray-500/50 font-medium'>
+      <h3 className='text-3xl mb-10'>My Tasks</h3>
       <ul>
-        {todos.map((task) => (
-          <TaskItem 
-            id={task.id}
-            title={task.title} 
-            date={task.date}
-            status={task.status}
-          />
+        {taskList.map((task) => (
+          <li key={task.id}>
+            <TaskItem 
+              title={task.title} 
+              date={task.date}
+              status={task.status} 
+              task={task}
+              taskList={taskList} 
+              setTaskList={setTaskList}
+              setShowModule={setShowModule}
+            />
+          </li>
         ))}
       </ul>
     </div>
