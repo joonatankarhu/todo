@@ -8,8 +8,8 @@ const FormModule = (props) => {
   };
 
   return (
-    <div onClick={props.hideForm} className='bg-black/50 flex flex-col items-center justify-center fixed left-0 top-0 right-0 bottom-0 py-5 px-10 z-20'>
-      <div onClick={e => e.stopPropagation()} className='w-auto bg-white rounded-xl p-10'>
+    <div onClick={props.hideForm} className='flex flex-col items-center justify-center fixed left-0 top-0 right-0 bottom-0 bg-black/50 py-5 px-10 z-20'>
+      <div onClick={e => e.stopPropagation()} className='w-full max-w-[250px] bg-white rounded-xl p-5'>
         <div className='mb-3'>
           <h3 className='text-2xl font-bold text-center'>New Task</h3>
         </div>
