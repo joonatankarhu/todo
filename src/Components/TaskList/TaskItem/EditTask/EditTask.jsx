@@ -1,33 +1,46 @@
 import React, { useState } from 'react';
-
 const EditTask = (props) => {
-  const [inputText, setInputText] = useState(props.title);
-
-  const inputTextHandler = (e) => {
-    setInputText(e.target.value);
-  };
-
   // Hide module
   if(!props.showModule) {
     return null
   };
 
-  const handleEditSubmit = (e) => {
+
+
+  const inputTitleHandler = (e) => {
+    props.setTitle(e.target.value);
+    props.setNewTitle(e.target.value);
+  };
+
+  const inputDateHandler = (e) => {
+    props.setDate(e.target.value);
+    props.setNewDate(e.target.value);
+  };
+
+  const inputStatusHandler = (e) => {
+    props.setStatus(e.target.value);
+    props.setNewStatus(e.target.value);
+  };
+
+
+  const submitEditHandler = (e) => {
     e.preventDefault();
-    props.taskList.map((item) => {
-      props.setTitle(item.title);
+    const selectedItem = props.taskList.find(item => item.id === props.id);
+
+
+
+    const newEditTitle = props.newTitle;
+    const newEditDate = props.newDate;
+    const newEditStatus = props.newStatus;
+
+
+
+    props.taskList.splice(0, 1, {
+      title: newEditTitle,
+      date: newEditDate,
+      status: newEditStatus
     })
-    // props.setTaskList([
-    //   ...props.taskList, {
-    //     // New task that gets added to old list
-    //     id: Math.floor(Math.random() * 1000) + 1,
-    //     // id: 5,
-    //     title: props.title,
-    //     date: props.date,
-    //     status: props.status
-    //   }
-    // ]);
-    
+
     props.setShowModule(false);
   };
 
@@ -37,12 +50,12 @@ const EditTask = (props) => {
         <div className='mb-10'>
           <h3 className='text-2xl font-bold text-center'>Edit Task</h3>
         </div>
-        <form onSubmit={handleEditSubmit} className='flex flex-col gap-4'>
+        <form onSubmit={submitEditHandler} className='flex flex-col gap-4'>
           <label className='flex flex-col gap-1'>
             <input 
               name="title"
-               
-              onChange={inputTextHandler}
+              placeholder={props.title}
+              onChange={inputTitleHandler}
               required 
               type="text" 
               className='border-[1px] rounded-lg py-1 px-2 border-slate-600/40 placeholder:text-slate-700 font-normal'
@@ -50,9 +63,9 @@ const EditTask = (props) => {
           </label>
           <label className='flex flex-col gap-1'>
             <input 
-              value={props.newDate}
-              onChange={(e) => props.setDate(e.target.value)}
-              required
+              required 
+              onChange={inputDateHandler}
+              placeholder={props.date}
               className='border-[1px] rounded-lg py-1 px-2 border-slate-600/40 placeholder:text-slate-700 font-normal'
               type="date" 
               name="deadline" 
@@ -60,9 +73,9 @@ const EditTask = (props) => {
           </label>
           <label className='flex flex-col gap-1'>
             <select 
-            value={props.newStatus}
-            onChange={(e) => props.setStatus(e.target.value)}
               name="status"
+              onChange={inputStatusHandler}
+              placeholder={props.status}
               className='border-[1px] rounded-lg py-1 px-1 border-slate-600/40 placeholder:text-slate-700 font-normal'
             >
               <option value="in progress">In progress</option>

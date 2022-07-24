@@ -45,7 +45,8 @@ const FormModule = (props) => {
             <select 
               value={props.status}
               onChange={(e) => props.setStatus(e.target.value)}
-              name="status"
+              name="status" 
+              multiple={false}
               className='border-[1px] rounded-lg py-1 px-1 border-slate-600/40 placeholder:text-slate-700 font-normal'
             >
               <option value="in progress">In progress</option>

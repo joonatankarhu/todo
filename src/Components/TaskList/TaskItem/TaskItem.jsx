@@ -1,14 +1,15 @@
 import React from 'react';
 import { FaEdit, FaTrash } from "react-icons/fa";
+import EditTask from './EditTask/EditTask';
 
-const TaskItem = ({ title, date, status, task, taskList, setTaskList, openEdit}) => {
+
+const TaskItem = ({ title, date, status, task, taskList, setTaskList, openEdit, setTitle, showModule, setShowModule, setDate, setStatus, setNewTitle, newTitle, id, newDate, setNewDate, newStatus, setNewStatus}) => {
 
   // Delete Task handler
   const deleteHandler = () => {
     setTaskList(taskList.filter((el) => el.id !== task.id));
   };
 
-  console.log(task);
 
   return (
     <div className='flex justify-end gap-3 border-[2px] border-gray-500/40 rounded-lg p-5 mb-5 shadow'>
@@ -33,6 +34,24 @@ const TaskItem = ({ title, date, status, task, taskList, setTaskList, openEdit})
           <FaEdit/>
           Edit
         </button>
+        <EditTask
+          setTitle={setTitle}
+          title={title} 
+          id={id} 
+          showModule={showModule} 
+          taskList={taskList} 
+          setShowModule={setShowModule}
+          hideEdit={() => setShowModule(false)} 
+          setTaskList={setTaskList}
+          setDate={setDate}
+          newTitle={newTitle}
+          setStatus={setStatus}
+          setNewTitle={setNewTitle}
+          newDate={newDate}
+          setNewDate={setNewDate}
+          newStatus={newStatus}
+          setNewStatus={setNewStatus}
+        />
         <button onClick={deleteHandler} className='flex items-center gap-1 hover:bg-white hover:text-red-700 px-3 py-1 rounded-xl'>
           <FaTrash/>
           Delete
