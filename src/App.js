@@ -46,7 +46,7 @@ function App() {
   };
 
   return (
-    <div className='font-["Roboto"] flex flex-col p-5 placeholder-opacity-100'>
+    <div className='font-["Roboto"] flex flex-col p-0 md:p-5 placeholder-opacity-100'>
       <Header/>
       <div className='w-full h-80 p-5'>
         <Button setShow={setShow} />
