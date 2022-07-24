@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 const EditTask = (props) => {
   // Hide module
   if(!props.showModule) {
@@ -25,7 +25,7 @@ const EditTask = (props) => {
 
   const submitEditHandler = (e) => {
     e.preventDefault();
-    const selectedItem = props.taskList.find(item => item.id === props.id);
+ 
 
 
 
