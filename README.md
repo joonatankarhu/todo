@@ -5,4 +5,7 @@ https://joonas-todo.netlify.app/
 
 I styled the project using TailWindCSS.
 
-C:\Users\Joona\Desktop\to_do\img
+
+![Landing page](./img/todo.png)
+![New todo](./img/newTask.png)
+![Edit todo](./img/editTask.png)
