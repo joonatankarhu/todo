@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaEdit, FaTrash } from "react-icons/fa";
 
-const TaskItem = ({ title, date, status, task, taskList, setTaskList, setShowModule }) => {
+const TaskItem = ({ title, date, status, task, taskList, setTaskList, openEdit}) => {
 
   // Delete Task handler
   const deleteHandler = () => {
@@ -25,7 +25,7 @@ const TaskItem = ({ title, date, status, task, taskList, setTaskList, setShowMod
         </div>
       </div>
       <div className='flex flex-col gap-2 text-base'>
-        <button onClick={() => setShowModule(true)} className='flex items-center gap-1 text-white hover:bg-white hover:text-blue-600 px-3 py-1 rounded-xl'>
+        <button onClick={openEdit} className='flex items-center gap-1 text-white hover:bg-white hover:text-blue-600 px-3 py-1 rounded-xl'>
           <FaEdit/>
           Edit
         </button>
