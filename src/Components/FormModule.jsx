@@ -16,28 +16,32 @@ const FormModule = (props) => {
         <form onSubmit={props.handleFormSubmit} className='flex flex-col gap-2 md:gap-4'>
           <label className='flex flex-col gap-1'>
             <h5 className='text-lg'>Title</h5>
-            <input 
-              value={props.title}
-              onChange={(e) => props.setTitle(e.target.value)}
-              required 
-              type="text" 
-              placeholder="Task name..."
-              className='border-[1px] rounded-lg py-1 px-2 border-slate-600/40 placeholder:text-slate-700 font-normal'
-            />
+            <div className='text-blue-800 capitalize'>
+              <input 
+                value={props.title}
+                onChange={(e) => props.setTitle(e.target.value)}
+                required 
+                type="text" 
+                placeholder="Task name..."
+                className='border-[1px] rounded-lg py-1 px-2 border-slate-600/40 placeholder:text-slate-700 font-normal'
+              />
+            </div>
           </label>
           <label className='flex flex-col gap-1'>
             <h5 className='text-lg'>Deadline</h5>
-            <input 
-              value={props.date}
-              onChange={(e) => props.setDate(e.target.value)}
-              required
-              className='border-[1px] rounded-lg py-1 px-2 border-slate-600/40 placeholder:text-slate-700 font-normal'
-              type="date" 
-              name="deadline" 
-            />
+            <div className='text-blue-800'>
+              <input 
+                value={props.date}
+                onChange={(e) => props.setDate(e.target.value)}
+                required
+                className='border-[1px] rounded-lg py-1 px-2 border-slate-600/40 placeholder:text-slate-700 font-normal'
+                type="date" 
+                name="deadline" 
+              />
+            </div>
           </label>
-          <label className='flex flex-col gap-1'>
-            <h5 className='text-lg'>Status</h5> 
+          <label className='flex flex-col gap-1 text-blue-800'>
+            <h5 className='text-lg text-black'>Status</h5> 
             <select 
               value={props.status}
               onChange={(e) => props.setStatus(e.target.value)}
@@ -52,9 +56,9 @@ const FormModule = (props) => {
           <div className='flex flex-col gap-3 items-center md:flex-row-reverse md:justify-center md:items-center md:mt-5'>
             <button 
               type="submit" 
-              className='bg-blue-600 hover:bg-blue-800 hover:cursor-pointer w-full mt-5 py-2 rounded text-white text-lg font-medium md:px-5 md:mt-0'
+              className='bg-blue-800 hover:shadow-lg hover:bg-blue-700 hover:cursor-pointer w-full mt-5 py-2 rounded text-white text-lg font-medium md:px-5 md:mt-0'
             >Create</button>
-            <button onClick={props.hideForm} className='bg-red-400 hover:bg-red-600  w-full hover:cursor-pointer text-lg py-2 rounded text-white font-medium md:px-5'>Cancel</button>
+            <button onClick={props.hideForm} className='text-red-600 hover:bg-red-600 hover:text-white  w-full hover:cursor-pointer text-lg py-2 rounded font-medium md:px-5'>Cancel</button>
           </div>
         </form>
       </div>

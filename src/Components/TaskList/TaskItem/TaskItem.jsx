@@ -8,28 +8,32 @@ const TaskItem = ({ title, date, status, task, taskList, setTaskList, openEdit})
     setTaskList(taskList.filter((el) => el.id !== task.id));
   };
 
+  console.log(task);
+
   return (
-    <div className='flex justify-end gap-3 border-[1px] rounded p-5 mb-5 text-white bg-blue-600 shadow'>
+    <div className='flex justify-end gap-3 border-[2px] border-gray-500/40 rounded-lg p-5 mb-5 shadow'>
       <div className='mr-auto'>
-        <div className='flex gap-1 text-xl font-bold'>
+        <div className='flex gap-1 text-lg text-black/80 font-bold'>
           <h6>Task:</h6>
-          {title}
+          <div className='text-blue-700 font-serif'>
+            {title}
+          </div>
         </div>
-        <div className='flex gap-1 text-base italic'>
+        <div className='flex gap-1 text-base text-red-600/90 italic'>
           <h6>Deadline:</h6>
           {date}
         </div>
-        <div className='flex gap-1 text-base'>
+        <div className='flex gap-1 text-base text-black/80'>
           <h6>Status: </h6>
           {status}
         </div>
       </div>
       <div className='flex flex-col gap-2 text-base'>
-        <button onClick={openEdit} className='flex items-center gap-1 text-white hover:bg-white hover:text-blue-600 px-3 py-1 rounded-xl'>
+        <button onClick={openEdit} className='flex items-center gap-1 hover:bg-white hover:text-blue-700 px-3 py-1 rounded-xl'>
           <FaEdit/>
           Edit
         </button>
-        <button onClick={deleteHandler} className='flex items-center gap-1 text-white hover:bg-white hover:text-blue-600 px-3 py-1 rounded-xl'>
+        <button onClick={deleteHandler} className='flex items-center gap-1 hover:bg-white hover:text-red-700 px-3 py-1 rounded-xl'>
           <FaTrash/>
           Delete
         </button>

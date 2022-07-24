@@ -4,11 +4,11 @@ import TaskItem from './TaskItem/TaskItem';
 
 const TaskList = ({ taskList, setTaskList, setShowModule,openEdit }) => {
   return (
-    <div className='mt-10 rounded-xl p-10 shadow-xl border-[1px] border-gray-500/50 font-medium'>
-      <h3 className='text-3xl mb-10'>My Tasks</h3>
+    <div className='mt-10 rounded-xl md:rounded-3xl p-10 shadow-xl border-[2px] font-medium max-w-3xl border-gray-400/50 min-h-[250px]'>
+      <h3 className='text-3xl text-black/90 mb-10 font-bold'>Active Tasks</h3>
       <ul className='md:flex md:gap-5'>
         {taskList.map((task) => (
-          <li key={task.id} id={task.id}>
+          <li key={task.id}>
             <TaskItem 
               id={task.id} 
               title={task.title} 
