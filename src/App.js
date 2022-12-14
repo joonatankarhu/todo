@@ -6,7 +6,7 @@ import Header from './Components/Header';
 import TaskList from './Components/TaskList/TaskList';
 
 function App() {
-  // Show/Hide module based on boolean
+  // Show/Hide module based on boolean new comment
   const [show, setShow] = useState(false);
   // Edit task component show/hide
   const [showModule, setShowModule] = useState(false);
